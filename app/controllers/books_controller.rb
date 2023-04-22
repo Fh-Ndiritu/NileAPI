@@ -12,10 +12,9 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
 
     if book.save
-      render status: :created
+      render json: book,  status: :created
     else
-      render status: :unprocessable_entity
-
+      render json: book.errors, status: :unprocessable_entity
     end
 
   end
