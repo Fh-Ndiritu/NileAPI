@@ -5,10 +5,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    book_params = {
-      author: 'Frank',
-      title: 'The Shark'
-    }
     book = Book.new(book_params)
 
     if book.save
@@ -19,5 +15,10 @@ class BooksController < ApplicationController
 
   end
 
+  private 
+
+  def book_params
+    params.require(:book).permit(:title,  :author)
+  end
 
 end
