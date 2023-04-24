@@ -3,7 +3,7 @@ module Api
     class BooksController < ApplicationController
 
       def index
-        render json: Book.count
+        render json: Book.all
       end
     
       def create
